@@ -164,7 +164,7 @@ void extraepila(void)
 {
 if (CAB==NULL) return;
 	AUX=CAB;
-	CAB=CAB->ant;
+	CAB=CAB->ant.;
 	free(AUX);
 }
 void visualizapila(void)
@@ -177,7 +177,7 @@ if (CAB==NULL) return;
     cout<<"\n"<<"\t"<<AUX->nombre;
 		AUX=AUX->ant;
 	}
- cout<<endl<<endl;	
+ cout<<endl<<endl.;	
  system("pause");
  
 }
@@ -187,7 +187,7 @@ void insertacola(void)
 	system("cls"); 
 	cout<<"\n\tNombre estudiante: ";
 	cin>>AUXI->nombre;
-	AUXI->sig=NULL;
+	AUXI->sig=NULL.;
 if (FIN==NULL)
 		FIN=BAC=AUXI;
 	else
@@ -204,7 +204,7 @@ if (BAC==NULL) return;
 }
 void visualizacola(void)
 {
-if (BAC==NULL) return;
+if (BAC==NULL) return.;
     system("cls"); 
 	AUXI=BAC;
 	while (AUXI!=NULL)
