@@ -1,0 +1,216 @@
+// proyecto 2 
+#include<iostream>
+#include<cstdlib>
+#include<math.h>
+#include <malloc.h>
+#include<stdlib.h> 
+
+
+using namespace std;
+
+void insertapila(void);
+void extraepila(void);
+void visualizapila(void);
+
+struct pila
+{
+       char nombre[40];
+        struct pila *ant;
+}*CAB=NULL,*AUX=NULL;
+
+void insertacola(void);
+void extraecola(void);
+void visualizacola(void);
+
+struct cola
+{
+	char nombre[40];
+	  struct cola *sig;
+}*BAC=NULL,*AUXI=NULL,*FIN=NULL;
+
+
+ main(){
+    int opc, estud;
+    string nombre[40];
+    float nota1=0, nota2=0, nota3=0, nota4=0;
+    float promedio[4];
+    do{
+    
+    cout<<"\t\tPrograma principal\n"<<endl<<endl;
+    cout<<"\t1-Arreglos"<<endl;
+    cout<<"\t2-Pilas"<<endl;
+    cout<<"\t3-Colas"<<endl;
+    cout<<"\t4-Salida, Gracias por usarnos. \n"<<endl;
+    cout<<"\t\tSeleccione una opcion: ";
+    cin>>opc;
+    
+    switch(opc)
+	{ 
+    case 1:
+        system("cls");
+                    
+        for (estud=1;estud<=5;estud++)
+		{
+        	
+             system("cls");
+             
+            cout<<"\n\tNotas de estudiantes\n\n";
+ 
+            nota1=0, nota2=0, nota3=0, nota4=0, promedio[4];
+                    
+            cout<<"Ingresar el nombre del estudiante "<<estud<<": ";
+            cin>>nombre[estud];
+            cout<<"Ingresar la nota 1: ";
+            cin>>nota1;
+			cout<<"Ingresar la nota 2: ";
+            cin>>nota2;
+			cout<<"Ingresar la nota 3: ";
+            cin>>nota3;
+			cout<<"Ingresar la nota 4: ";
+            cin>>nota4;
+                    
+                    promedio[estud]=((nota1+nota2+nota3+nota4)/4);
+                    cout<<"El promedio final es: "<<promedio[estud]<<endl;
+                    system("PAUSE");
+                    }
+                    
+          system("cls"); 
+                    cout<<"\n\t\tPromedio nota de los estudiantes:"<<endl<<endl<<endl;
+                    cout<<"\t\tNombre\t\t\t"<<"Promedio final"<<endl;
+                    
+                    for (estud=1;estud<=5;estud++){
+                    cout<<"\t\t"<<nombre[estud]<<"\t\t\t"<<promedio[estud]<<endl<<endl;
+                    }
+                    
+                    system("PAUSE");
+                    break;
+                	
+                	
+	case 2: 
+        int opc;
+     do{
+       system("cls"); 
+		
+    cout<<"\t\tOperaciones pilas:"<<endl;
+    cout<<"\n\t1-Insertar"<<endl;
+    cout<<"\t2-Extraer"<<endl;
+    cout<<"\t3-Visualizar la pila"<<endl;
+    cout<<"\t4-Salir, Gracias por usarnos."<<endl;
+    cout<<"\nIngrese numero de opcion: "<<endl;
+      cin>>opc;
+	    switch(opc)
+		{
+			case 1:
+				insertapila( );
+				break;
+			case 2:
+				extraepila( );
+				break;
+			case 3:
+				visualizapila( );
+				break; 
+		} 
+		
+    }while(opc!=4);
+	 
+	 break;  
+	case 3: 
+	int opc1; 
+	
+	do{
+    system("cls"); 
+
+    cout<<"\t\tOperaciones de cola:"<<endl;
+    cout<<"\n\t1-Insertar"<<endl;
+    cout<<"\t2-Extraer"<<endl;
+    cout<<"\t3-Visualizar la cola"<<endl;
+    cout<<"\t4-Salir, Gracias por usarnos"<<endl;
+    cout<<"\nIngrese numero de opcion: "<<endl;
+        cin>>opc1;
+    	switch(opc1)
+		{case 1:
+				insertacola( );
+				break;
+			case 2:
+				extraecola( );
+				break;
+			case 3:
+				visualizacola( );
+		}
+		}while(opc1!=4);
+    	break; 		                     
+       }
+         system("cls"); 
+         }
+		 while(opc!=4);
+    
+          system("PAUSE");
+                return 0;
+}
+void insertapila(void)
+{
+	AUX=(struct pila *)malloc(sizeof(struct pila));
+	system("cls");
+	cout<<"\n\tNombre estudiante : ";
+	cin>>AUX->nombre;
+if (CAB==NULL)
+	{   CAB=AUX;
+		AUX->ant=NULL; }
+	else
+	{AUX->ant=CAB;
+		CAB=AUX;}
+}
+void extraepila(void)
+{
+if (CAB==NULL) return;
+	AUX=CAB;
+	CAB=CAB->ant;
+	free(AUX);
+}
+void visualizapila(void)
+{
+if (CAB==NULL) return;
+	system("cls");
+	AUX=CAB;
+	while (AUX!=NULL)
+	{
+    cout<<"\n"<<"\t"<<AUX->nombre;
+		AUX=AUX->ant;
+	}
+ cout<<endl<<endl;	
+ system("pause");
+ 
+}
+void insertacola(void)
+{   
+    AUXI=(struct cola *)malloc(sizeof(struct cola));
+	system("cls"); 
+	cout<<"\n\tNombre estudiante: ";
+	cin>>AUXI->nombre;
+	AUXI->sig=NULL;
+if (FIN==NULL)
+		FIN=BAC=AUXI;
+	else
+	{	FIN->sig=AUXI;
+		FIN=AUXI;
+	}
+}
+void extraecola(void)
+{
+if (BAC==NULL) return;
+	AUXI=BAC;
+	BAC=BAC->sig;
+	free(AUXI);
+}
+void visualizacola(void)
+{
+if (BAC==NULL) return;
+    system("cls"); 
+	AUXI=BAC;
+	while (AUXI!=NULL)
+	{
+	cout<<"Nombre estudiante: "<<AUXI->nombre<<endl;
+	AUXI=AUXI->sig;
+	}
+	system("PAUSE");
+}
