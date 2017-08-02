@@ -120,14 +120,7 @@ struct cola
 	do{
     system("cls"); 
 
-    cout<<"\t\tOperaciones de cola:"<<endl;
-    cout<<"\n\t1-Insertar"<<endl;
-    cout<<"\t2-Extraer"<<endl;
-    cout<<"\t3-Visualizar la cola"<<endl;
-    cout<<"\t4-Salir, Gracias por usarnos"<<endl;
-    cout<<"\nIngrese numero de opcion: "<<endl;
-        cin>>opc1;
-    	switch(opc1)
+  jjajaajaja
 		{case 1:
 				insertacola( );
 				break;
